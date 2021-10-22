@@ -9,50 +9,72 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Objetos.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="css/custom.css">
+
+
+<%
+    Crud c = new Crud();
+    ArrayList<Producto> list = c.mostrar();
+    Iterator<Producto> iter = list.iterator();
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-        <title>Mostrar | Usa2</title>
+        <%@include file="/sections/head.jsp"%>
     </head>
     <body>
-        <h1>Mostrar Productos</h1>
-        <div>
+        <%@include file="/sections/navbar.jsp"%>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                    </tr>
-                </thead>
 
+        <div id="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="six columns">
+                        <div class="contenido-hero">
+                            <h2>Compra tu ropa favorita</h2>
+                            <p>Haz tu estilo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-header my-3">Todos los productos</div>
+            <div class="row">
                 <%
-                    Producto p = null;
-                    Crud c = new Crud();
-                    ArrayList<Producto> list = c.mostrar();
-                    Iterator<Producto> iter = list.iterator();
-
-                    while (iter.hasNext()) {
-                        p = iter.next();
-
+                    if (!list.isEmpty()) {
+                        for (Producto p : list) {
+                %>
+                <div class="col-md-3 my-3">
+                    <div class="card w-100">
+                        <img class="card-img-top" src="<%=p.getImg()%>"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=p.getNombre()%></h5>
+                            <h6 class="price">Price: $<%=p.getPrecio()%></h6>
+                            <div class="mt-3 d-flex justify-content-between">
+                                <a class="btn btn-dark" href="add-to-cart?id=<%=p.getID()%>">Add to Cart</a> <a
+                                    class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getID()%>">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%
+                        }
+                    } else {
+                        out.println("There is no proucts");
+                    }
                 %>
 
-                <tr>
-                    <td><%=p.getID()%></td>
-                    <td><%=p.getNombre()%></td>
-                    <td><%=p.getPrecio()%></td>
-                    <td>
-                        <a href="Index?accion=editar&ID=<%=p.getID()%>">Editar</a>
-                        <a href="Index?accion=eliminar&ID=<%=p.getID()%>">Eliminar</a>
-                    </td>
-                </tr>
-                <%}%>
-                </tbody>
-            </table>
+            </div>
         </div>
+
+
+
+
+
+        <%@include file="/sections/footer.jsp"%>
     </body>
 </html>

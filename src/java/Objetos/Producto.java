@@ -14,14 +14,16 @@ public class Producto {
     private int ID;
     private String Nombre;
     private int Precio;
+    private String Img;
 
     public Producto() {
     }
 
-    public Producto(int ID, String Nombre, int Precio) {
+    public Producto(int ID, String Nombre, int Precio, String Img) {
         this.ID = ID;
         this.Nombre = Nombre;
         this.Precio = Precio;
+        this.Img = Img;
     }
 
     public int getID() {
@@ -47,9 +49,12 @@ public class Producto {
     public void setPrecio(int Precio) {
         this.Precio = Precio;
     }
-    
-    
-    
-    
-    
+
+    public String getImg() {
+        return Img;
+    }
+
+    public void setImg(String Img) {
+        this.Img = Img;
+    } 
 }

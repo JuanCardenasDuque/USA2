@@ -26,10 +26,11 @@
 
                 <div class="inputs">
 
-                    <input class="contact" type="text" placeholder="ID" name="ID" value="" />
+                    <input class="contact" type="text" placeholder="ID" name="ID" value=""/>
                     <input class="contact" type="text" placeholder="Nombre" name="Nombre" value=""/>
                     <input class="contact" type="text" placeholder="Precio" name="Precio" value="">
-
+                    <input class="contact" type="text" placeholder="Img" name="Img" value="">
+ 
                     <input class="submit" id="submit" type="submit" name="accion" value="agregar" />
                 </div>
             </form>

@@ -21,11 +21,11 @@ import java.util.ArrayList;
  */
 public class Crud {
 
-    public void insertar(int ID, String Nombre, int Precio) throws SQLException {
+    public void insertar(int ID, String Nombre, int Precio, String Img) throws SQLException {
 
         try {
 
-            String sql = "INSERT INTO Producto (ID, Nombre, Precio) VALUES ('" + ID + "','" + Nombre + "','" + Precio + "')";
+            String sql = "INSERT INTO Producto (ID, Nombre, Precio, Img) VALUES ('" + ID + "','" + Nombre + "','" + Precio + "','" + Img + "')";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionURL = "jdbc:sqlserver://DESKTOP-K1Q9I2S\\SQLEXPRESS:1433;" + "databaseName=Clientes_nomina;" + "user = sa;" + "password = IdKwPtP102463297.-; ";
             Connection con = DriverManager.getConnection(connectionURL);
@@ -47,6 +47,7 @@ public class Crud {
         int ID = 0;
         String Nombre = null;
         int Precio = 0;
+        String Img = null;
 
         try {
 
@@ -68,6 +69,9 @@ public class Crud {
 
                 Precio = rs.getInt(3);
                 registro.setPrecio(Precio);
+                
+                Img = rs.getString(4);
+                registro.setImg(Img);
 
                 productos.add(registro);
             }
@@ -91,6 +95,7 @@ public class Crud {
         int ID = 0;
         String Nombre = null;
         int Precio = 0;
+        String Img = null;
         Producto registro = new Producto();
 
         try {
@@ -107,6 +112,9 @@ public class Crud {
 
                 Precio = rs.getInt(3);
                 registro.setPrecio(Precio);
+                
+                Img = rs.getString(4);
+                registro.setImg(Img);
             }
             st.close();
 
@@ -129,17 +137,15 @@ public class Crud {
 
     }
 
-    public void modificar(int ID, String Nombre, int Precio) throws SQLException, ClassNotFoundException {
+    public void modificar(int ID, String Nombre, int Precio, String Img) throws SQLException, ClassNotFoundException {
 
         String res = null;
-        String sql = "UPDATE Producto SET ID='" + ID + "',Nombre='" + Nombre + "',Precio='" + Precio + "'WHERE ID=" + ID;
+        String sql = "UPDATE Producto SET ID='" + ID + "',Nombre='" + Nombre + "',Precio='" + Precio + "',Img='" + Img + "'WHERE ID=" + ID;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String connectionURL = "jdbc:sqlserver://DESKTOP-K1Q9I2S\\SQLEXPRESS:1433;" + "databaseName=Clientes_nomina;" + "user = sa;" + "password = IdKwPtP102463297.-; ";
         Connection con = DriverManager.getConnection(connectionURL);
 
         PreparedStatement statement = con.prepareStatement(sql);
         statement.execute();
-
     }
-
 }

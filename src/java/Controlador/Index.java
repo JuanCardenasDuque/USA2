@@ -46,9 +46,10 @@ public class Index extends HttpServlet {
             int ID = Integer.parseInt(request.getParameter("ID"));
             String Nombre = request.getParameter("Nombre");
             int Precio = Integer.parseInt(request.getParameter("Precio"));
+            String Img = request.getParameter("Img");
             Crud c = new Crud();
             try {
-                c.insertar(ID, Nombre, Precio);
+                c.insertar(ID, Nombre, Precio, Img);
             } catch (SQLException ex) {
                 Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -57,9 +58,10 @@ public class Index extends HttpServlet {
             int ID = Integer.parseInt(request.getParameter("ID"));
             String Nombre = request.getParameter("Nombre");
             int Precio = Integer.parseInt(request.getParameter("Precio"));
+            String Img = request.getParameter("Img");
             Crud c = new Crud();
             try {
-                c.modificar(ID, Nombre, Precio);
+                c.modificar(ID, Nombre, Precio, Img);
             } catch (SQLException ex) {
                 Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
