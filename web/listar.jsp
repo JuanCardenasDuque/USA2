@@ -55,8 +55,8 @@
                             <h5 class="card-title"><%=p.getNombre()%></h5>
                             <h6 class="price">Price: $<%=p.getPrecio()%></h6>
                             <div class="mt-3 d-flex justify-content-between">
-                                <a class="btn btn-dark" href="add-to-cart?id=<%=p.getID()%>">Add to Cart</a> <a
-                                    class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getID()%>">Buy Now</a>
+                                <a class="btn btn-dark" href="Index?accion=editar&ID=<%=p.getID()%>">Editar</a> <a
+                                    class="btn btn-primary" href="Index?accion=eliminar&ID=<%=p.getID()%>">Eliminar</a>
                             </div>
                         </div>
                     </div>

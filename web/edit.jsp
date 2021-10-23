@@ -41,6 +41,7 @@
                     <input class="contact" type="text" placeholder="ID" name="ID" value="<%=p.getID()%>" />
                     <input class="contact" type="text" placeholder="Nombre" name="Nombre" value="<%=p.getNombre()%>"/>
                     <input class="contact" type="text" placeholder="Precio" name="Precio" value="<%=p.getPrecio()%>">
+                    <input class="contact" type="text" placeholder="Img" name="Img" value="<%=p.getImg()%>">
 
                     <input class="submit" id="submit" type="submit" name="accion" value="Actualizar" />
                 </div>

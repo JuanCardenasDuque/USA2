@@ -13,8 +13,6 @@
         <title>Agregar | Usa2</title>
     </head>
     <body>
-        <h1>Agregar Productos</h1>
-
         <div class="container">
             <form id="signup" action="Index">
                 <div  class="form_settings" class="header">
