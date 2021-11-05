@@ -31,6 +31,11 @@
  
                     <input class="submit" id="submit" type="submit" name="accion" value="agregar" />
                 </div>
+                <div>
+                    <span style="font-size: 16px">
+                        This is a demo
+                    </span>
+                </div>
             </form>
         </div>
     </body>
